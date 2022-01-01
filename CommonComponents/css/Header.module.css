@@ -1,0 +1,201 @@
+.headerCont {
+  height: 75px;
+  width: 100%;
+  padding: 0 15px 0 0;
+  box-shadow: 0 0.5px 0.5px 0 rgba(130, 154, 177, 0.2);
+  background-color: var(--white);
+  padding: 8px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.headerContInner {
+  width: 100%;
+}
+
+.headerSections {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.rightPartInner {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftPart {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+
+.leftPartInner {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.groupIconCont {
+  cursor: pointer;
+}
+
+.targetSector {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 253px;
+  margin-left: 50px;
+}
+
+.targetNameTxt {
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.targetSectorTxt {
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--primary);
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.preDealTxt span {
+  font-size: 12px;
+  background-color: var(--info);
+  color: var(--white);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.otherTogglersInfo {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  grid-gap: 0px 30px;
+  margin-right: 30px;
+}
+
+.profileImg {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.profileImg img {
+  width: 100%;
+  height: auto;
+}
+
+.iconCont {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.notificationsCont {
+  width: 190px;
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  padding: 10px;
+  background-color: var(--white);
+  border-radius: 5px;
+
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.notificationsCont ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+.notificationsCont ul li a {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  clear: both;
+  font-weight: 400;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: #829ab1;
+  box-sizing: border-box;
+}
+
+.notificationsCont ul li a:hover {
+  background-color: #e9ecef;
+}
+
+
+.overlay {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: transparent;
+}
+@media screen and (max-width: 768px) {
+
+
+    .otherTogglersInfo {
+        grid-gap: 0px 15px;
+    }
+
+  .targetSector {
+      margin-left: 0px;
+      width: 240px;
+      justify-content: space-evenly;
+      margin-bottom: 30px;
+  }
+
+
+  .targetNameTxt {
+    color: var(--white);
+    font-size: 12px;
+  }
+
+  .targetSectorTxt {
+    color: var(--white);
+    font-size: 14px;
+  }
+
+  .iconCont img {
+      max-width: 30px;
+  }
+
+  .otherTogglersInfo {
+      margin-right: 20px;
+  }
+}
