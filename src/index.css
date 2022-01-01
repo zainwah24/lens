@@ -1,0 +1,33 @@
+:root {
+  --primary: #003149;
+  --secondary: #ff5622;
+  --success: #00c851;
+  --danger: #f00;
+  --warning: #fb3;
+  --info: #33b5e5;
+  --dark: #023;
+  --muted: #829ab1;
+  --side-sub-menu-clicked: #366c8e;
+  --side-menu-clicked: #275877;
+  --side-menu-rollover: #184561;
+  --aa-0-side-menu: #447aa0;
+  --light: #f0f4f8;
+  --white: #fff;
+  --primary-font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--primary-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, button {
+  font-family: var(--primary-font-family);
+}
