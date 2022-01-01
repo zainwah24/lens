@@ -1,0 +1,33 @@
+{
+    "data": [
+        {
+            "heading": "Software",
+            "scope_list": [
+                "Examine technology claims made in material supplied to us",
+                "Provide a short “guide” to the three main product their functionality, limitations and integration with third party software/platforms",
+                "Review the capability and capacity of the technology team, and the use of (and potential dependence on) any third-party vendors",
+                "Review technology strategy & roadmap",
+                "Assess technology budget and forecast and consider their appropriateness for delivering the product & technology roadmap",
+                "Assess the software development lifecycle including methodology, processes and practices",
+                "Assess underlying technology, architecture, code quality and fitness for purpose"
+            ]
+        },
+        {
+            "heading": "Product & Commercial Linkage",
+            "scope_list": [
+                "Assess product function including prioritisation methodology",
+                "Review product roadmap",
+                "Assess customer on-boarding process",
+                "Review of CDD / Competitor Analysis, SmartNumbers to provide"
+            ]
+        },
+        {
+            "heading": "Security & Governance",
+            "scope_list": [
+                "Review the security of the product through examining the development lifecycle, architecture, governance and external assurance",
+                "Data management and governance review inc. data management processes and policies",
+                "Review of approach to data security, GDPR"
+            ]
+        }
+    ]
+}
