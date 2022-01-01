@@ -1,0 +1,379 @@
+/* scope handlers */
+
+.projectScope {
+  background-color: var(--light);
+  height: 100%;
+}
+
+.projectScopeInner {
+  height: 100%;
+}
+
+
+.scopeHandlers {
+  background-color: #cfdde9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 20px 0px 40px;
+  height: 58px;
+}
+
+.scopeHandlersInner {
+}
+
+.listOfHandlers {
+}
+
+.listOfHandlers button {
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.23px;
+  text-align: center;
+  color: var(--primary);
+  background-color: transparent;
+  border: 0px;
+  outline: 0px;
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+button.submitBtn {
+  border-radius: 5px;
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+/* Scope content */
+
+.scopeContent {
+  padding: 20px;
+  height: 100%;
+}
+
+.scopeContentHeadingList {
+  padding: 30.5px 25px 30px;
+  border-radius: 2px;
+  border: solid 0.5px #ced4da;
+  background-color: #fff;
+}
+
+.scopeContentHeadingList .headingCont {
+  margin-bottom: 30px;
+}
+
+.scopeContentHeadingList .headingContInner {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.headingTxt {
+  font-size: 26px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0.09px;
+  color: var(--primary);
+  margin: 0px 16px;
+}
+
+.chevIconCont {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chevIconCont span {
+  height: 32px;
+  width: 32px;
+}
+
+.chevIconCont span svg {
+  fill: var(--secondary);
+  width: 32px;
+  height: 32px;
+}
+
+.disable span svg {
+  fill: #b4c5d5;
+}
+
+.listItemsInner ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+.listItemsInner ul li {
+  border-bottom: solid 0.5px rgba(130, 154, 177, 0.5);
+  padding: 16px 2px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: var(--primary);
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.checkedIconCont {
+  display: flex;
+  min-width: 32px;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.visibilityIconCont svg {
+  fill: var(--primary);
+}
+
+/* ShareScopeForReview */
+
+.shareScopeModaleCont {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--light);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.shareScopeModaleContInner {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.logoCont {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 60px;
+}
+
+.logoCont img {
+  width: 115px;
+}
+
+.modalHeading {
+  margin-bottom: 65px;
+}
+
+.modalHeading h2 {
+  font-size: 32px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--primary);
+}
+
+.formModal {
+  min-width: 300px;
+  height: auto;
+  width: 100%;
+  max-width: 550px;
+}
+
+.inputField {
+  margin-top: 35px;
+}
+
+.inputField .label {
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: var(--primary);
+}
+
+.inputField .input {
+  position: relative;
+}
+
+.inputField .input input {
+  outline: 0px;
+  padding: 10px 25px;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+
+  transition: background-color 250ms;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: var(--primary);
+}
+
+.inputField .textarea textarea {
+  border: 0px;
+  outline: 0px;
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+  resize: none;
+  overflow: auto;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.inputField .input input::placeholder {
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: var(--muted);
+}
+
+.notesCont {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  margin: 10px 0px;
+}
+
+.notesCont .noteName {
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: var(--primary);
+}
+
+.notesCont .visibilityIconCont {
+  cursor: pointer;
+}
+
+.formAction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sendBtnCont button,
+.cancelBtnCont button,
+.addBtnCont button {
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.23px;
+  text-align: center;
+  color: var(--primary);
+  background-color: transparent;
+  border: 0px;
+  outline: 0px;
+  padding: 10px 35px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.addBtnCont button {
+  padding: 10px 20px;
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.cancelBtnCont button {
+  color: var(--secondary);
+}
+
+.sendBtnCont button {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+/* AddToScope */
+
+.addToScope {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.addToScopeInner {
+  width: 100%;
+  max-width: 550px;
+  min-width: 300px;
+}
+
+.categoriesDropDown {
+  position: absolute;
+  top: 46px;
+  width: 100%;
+  border: 1px solid var(--muted);
+  border-radius: 5px;
+  padding: 5px;
+  background-color: var(--white);
+  box-sizing: border-box;
+}
+
+.categoriesDropDown ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.categoriesDropDown ul li {
+  background-color: var(--white);
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 250ms;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.categoriesDropDown ul li:hover {
+  background-color: var(--light);
+}
+
+@media screen and (max-width: 768px) {
+  .scopeContent {
+    padding: 20px 10px;
+  }
+
+  .headingTxt {
+    font-size: 22px;
+  }
+
+  .modalHeading h2 {
+    font-size: 26px;
+  }
+}

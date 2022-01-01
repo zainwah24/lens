@@ -1,0 +1,248 @@
+/* scope handlers */
+
+.projectScope {
+  background-color: var(--light);
+  height: 100%;
+}
+
+.projectScopeInner {
+  height: 100%;
+}
+
+
+.scopeHandlers {
+  background-color: #cfdde9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 20px 0px 40px;
+  height: 58px;
+}
+
+.scopeHandlersInner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.breadCrumps {
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: var(--primary);
+}
+
+.breadCrumps p {
+  margin: 0px;
+}
+
+.listOfHandlers {
+}
+
+.listOfHandlers button {
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.23px;
+  text-align: center;
+  color: var(--primary);
+  background-color: transparent;
+  border: 0px;
+  outline: 0px;
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+button.submitBtn {
+  border-radius: 5px;
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+/* Scope content */
+
+.scopeContent {
+  padding: 20px;
+  height: 100%;
+}
+
+.scopeContentInner {
+  padding: 30.5px 25px 30px;
+  border-radius: 5px;
+  border: solid 1px #ced4da;
+  background-color: #fff;
+}
+
+.targetCont {
+  padding: 10px 25px;
+}
+
+.targetMetaInfo {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.uploadArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--light);
+  width: 350px;
+  height: 120px;
+}
+
+.uploadAreaInner {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.targetName h2 {
+  font-size: 32px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--primary);
+  margin-bottom: 17px;
+  margin-top: 10px;
+}
+
+.targetData {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.employeesInfo,
+.businessTypeInfo,
+.revenueInfo {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.targetData .number {
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--info);
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.targetData .txt {
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--primary);
+}
+
+.webInfo p {
+  margin: 4px 0px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: var(--primary);
+}
+
+.uploadArea span {
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--muted);
+}
+
+p.projectDeadline {
+  font-weight: 900;
+}
+
+.targetDescription p {
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: justify;
+  color: var(--primary);
+}
+
+.scopeContentInner .headingCont {
+  margin-bottom: 30px;
+}
+
+.scopeContentInner .headingContInner {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.headingTxt {
+  font-size: 26px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0.09px;
+  color: var(--primary);
+  margin: 0px 16px;
+}
+
+@media screen and (max-width: 768px) {
+
+
+  .targetCont {
+    padding: 10px;
+  }
+  .scopeContent {
+    padding: 20px 10px;
+  }
+
+  .targetName {
+    font-size: 26px;
+  }
+
+  .targetMetaInfo {
+    flex-flow: column wrap;
+  }
+
+  .targetData {
+    flex-flow: column wrap;
+  }
+
+  .uploadArea {
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  .employeesInfo,
+  .businessTypeInfo,
+  .revenueInfo {
+    margin-bottom: 40px;
+  }
+}
