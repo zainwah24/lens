@@ -11,6 +11,7 @@ export class Header extends Component {
     this.state = {
       toggleMsgNotifications: false,
       toggleBellNotifications: false,
+      overlay:true, 
     };
   }
 
@@ -26,6 +27,13 @@ export class Header extends Component {
     });
   };
 
+
+  closeAllNotifications = () => {
+    this.setState({
+      toggleMsgNotifications: false,
+      toggleBellNotifications: false,
+    })
+  }
   render() {
     return (
       <div className={styles.headerCont}>
@@ -81,6 +89,14 @@ export class Header extends Component {
             </div>
           </div>
         </div>
+        {
+          this.state.toggleBellNotifications||this.state.toggleMsgNotifications?
+          <div className={styles.overlay} onClick={this.closeAllNotifications}>
+
+          </div>:
+          null
+        }
+
       </div>
     );
   }
