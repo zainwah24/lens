@@ -129,6 +129,7 @@
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
+  z-index: 1;
 }
 
 .notificationsCont ul {

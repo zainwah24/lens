@@ -1,52 +1,42 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import styles from "./css/NDA.module.css";
 
-export class NDA extends Component {
-  constructor(props) {
-    super(props);
+function NDA(props) {
+  const [ndaReview, setNdaReview] = useState(true);
+  const [sineesProfileImages, setSineesProfileImages] = useState([]);
 
-    this.state = {
-      ndaReview: true,
-      sineesProfileImages: [
-        {
-          src: "/assets/media/img/investor-profile.png",
-        },
-      ],
-    };
-  }
+  useEffect(() => {
+    setSineesProfileImages([
+      {
+        src: "/assets/media/img/investor-profile.png",
+      },
+    ]);
+  }, []);
 
-  setNdaReview = () => {
-    this.setState({
-      ndaReview: !this.state.ndaReview,
-    });
-  };
-
-  render() {
-    return (
-      <div className={styles.projectScope}>
-        <div className={styles.projectScopeInner}>
-          <div className={styles.scopeContent}>
-            <div className={styles.signees}>Signess</div>
-            <div className={styles.profileImages}>
-              <div className={styles.innerProfileImages}>
-                {this.state.sineesProfileImages.map((singleProfile, index) => (
-                  <div key={index} className={styles.profileImageCont}>
-                    <img src={singleProfile["src"]} />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className={styles.docCont}>
-              <div className={styles.docContInner}></div>
+  return (
+    <div className={styles.projectScope}>
+      <div className={styles.projectScopeInner}>
+        <div className={styles.scopeContent}>
+          <div className={styles.signees}>Signess</div>
+          <div className={styles.profileImages}>
+            <div className={styles.innerProfileImages}>
+              {sineesProfileImages.map((singleProfile, index) => (
+                <div key={index} className={styles.profileImageCont}>
+                  <img src={singleProfile["src"]} />
+                </div>
+              ))}
             </div>
           </div>
-          {this.state.ndaReview ? (
-            <NDAReview setNdaReview={this.setNdaReview}></NDAReview>
-          ) : null}
+          <div className={styles.docCont}>
+            <div className={styles.docContInner}></div>
+          </div>
         </div>
+        {ndaReview ? (
+          <NDAReview setNdaReview={() => setNdaReview(!ndaReview)}></NDAReview>
+        ) : null}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const NDAReview = (props) => {

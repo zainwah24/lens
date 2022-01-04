@@ -1,105 +1,81 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import styles from "./css/Header.module.css";
 
 import { CalendarIcon, MessageIcon, BellIcon } from "../Svgs";
-import MediaQuery from 'react-responsive'
+import MediaQuery from "react-responsive";
 
-export class Header extends Component {
-  constructor(props) {
-    super(props);
+function Header(props) {
+  const [toggleMsgNotifications, setMsgNotificationsToggle] = useState(false);
+  const [toggleBellNotifications, setBellNotificationsToggle] = useState(false);
+  const [overlay, setOverlay] = useState(false);
 
-    this.state = {
-      toggleMsgNotifications: false,
-      toggleBellNotifications: false,
-      overlay:true, 
-    };
-  }
-
-  setMsgNotificationsToggle = () => {
-    this.setState({
-      toggleMsgNotifications: !this.state.toggleMsgNotifications,
-    });
+  const closeAllNotifications = () => {
+    setMsgNotificationsToggle(false);
+    setBellNotificationsToggle(false);
   };
-
-  setBellNotificationsToggle = () => {
-    this.setState({
-      toggleBellNotifications: !this.state.toggleBellNotifications,
-    });
-  };
-
-
-  closeAllNotifications = () => {
-    this.setState({
-      toggleMsgNotifications: false,
-      toggleBellNotifications: false,
-    })
-  }
-  render() {
-    return (
-      <div className={styles.headerCont}>
-        <div className={styles.headerContInner}>
-          <div className={styles.headerSections}>
-            <div className={styles.leftPart}>
-              <div className={styles.leftPartInner}>
-                {this.props.leftSidebarState ? null : (
-                  <div
-                    className={styles.groupIconCont}
-                    onClick={this.props.setLeftSidebar}
-                  >
-                    <img src="/assets/media/img/group.svg" />
-                  </div>
-                )}
-
-                <MediaQuery minWidth={768}>
-                  <TargetSector></TargetSector>
-                </MediaQuery>
-              </div>
-            </div>
-            <div className={styles.rightPart}>
-              <div className={styles.rightPartInner}>
-                <div className={styles.otherTogglersInfo}>
-                  <div className={`${styles.iconCont}`}>
-                    <img src="/assets/media/img/schedule-meeting.svg" />
-                  </div>
-                  <div
-                    className={`${styles.iconCont}`}
-                    onClick={this.setMsgNotificationsToggle}
-                  >
-                    <img src="/assets/media/img/message-deactivated-alert.svg" />
-                    {this.state.toggleMsgNotifications ? (
-                      <MessageNotifications></MessageNotifications>
-                    ) : null}
-                  </div>
-                  <div
-                    className={`${styles.iconCont}`}
-                    onClick={this.setBellNotificationsToggle}
-                  >
-                    <img src="/assets/media/img/notification-deactivated-alert.svg" />
-                    {this.state.toggleBellNotifications ? (
-                      <BellNotifications></BellNotifications>
-                    ) : null}
-                  </div>
+  return (
+    <div className={styles.headerCont}>
+      <div className={styles.headerContInner}>
+        <div className={styles.headerSections}>
+          <div className={styles.leftPart}>
+            <div className={styles.leftPartInner}>
+              {props.leftSidebarState ? null : (
+                <div
+                  className={styles.groupIconCont}
+                  onClick={props.setLeftSidebar}
+                >
+                  <img src="/assets/media/img/group.svg" />
                 </div>
-                <div className={styles.profileInfo}>
-                  <div className={styles.profileImg}>
-                    <img src="/assets/media/img/investor-profile.png" />
-                  </div>
+              )}
+
+              <MediaQuery minWidth={768}>
+                <TargetSector></TargetSector>
+              </MediaQuery>
+            </div>
+          </div>
+          <div className={styles.rightPart}>
+            <div className={styles.rightPartInner}>
+              <div className={styles.otherTogglersInfo}>
+                <div className={`${styles.iconCont}`}>
+                  <img src="/assets/media/img/schedule-meeting.svg" />
+                </div>
+                <div
+                  className={`${styles.iconCont}`}
+                  onClick={() => setMsgNotificationsToggle(!toggleMsgNotifications)}
+                >
+                  <img src="/assets/media/img/message-deactivated-alert.svg" />
+                  {toggleMsgNotifications ? (
+                    <MessageNotifications></MessageNotifications>
+                  ) : null}
+                </div>
+                <div
+                  className={`${styles.iconCont}`}
+                  onClick={() => setBellNotificationsToggle(!toggleBellNotifications)}
+                >
+                  <img src="/assets/media/img/notification-deactivated-alert.svg" />
+                  {toggleBellNotifications ? (
+                    <BellNotifications></BellNotifications>
+                  ) : null}
+                </div>
+              </div>
+              <div className={styles.profileInfo}>
+                <div className={styles.profileImg}>
+                  <img src="/assets/media/img/investor-profile.png" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {
-          this.state.toggleBellNotifications||this.state.toggleMsgNotifications?
-          <div className={styles.overlay} onClick={this.closeAllNotifications}>
-
-          </div>:
-          null
-        }
-
       </div>
-    );
-  }
+      {toggleBellNotifications ||
+      toggleMsgNotifications ? (
+        <div
+          className={styles.overlay}
+          onClick={()=>closeAllNotifications()}
+        ></div>
+      ) : null}
+    </div>
+  );
 }
 
 export const TargetSector = () => {

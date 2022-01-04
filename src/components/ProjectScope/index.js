@@ -1,126 +1,100 @@
 import React, { Component, useEffect, useState } from "react";
 import styles from "./css/ProjectScope.module.css";
-import projectScopeData from "../../DataStorage/projectScope.json";
+import projectScopeDataStore from "../../DataStorage/projectScope.json";
 
 import { ChevronBackward, ChevronForward, VisibilityBlack } from "../Svgs";
 
-export class ProjectScope extends Component {
-  constructor(props) {
-    super(props);
+function ProjectScope() {
+  const [editing, setEditing] = useState(false);
+  const [addingNewScope, setAddingNewScope] = useState(false);
+  const [shareScope, setShareScope] = useState(false);
+  const [projectScopeData, setProjectScopeData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    this.state = {
-      editing: false,
-      addingNewScope: false,
-      shareScope: false,
-      projectScopeData: projectScopeData["data"],
-      currentIndex: 0,
-    };
-  }
+  useEffect(() => {
+    setProjectScopeData(projectScopeDataStore["data"]);
+  }, []);
 
-  setAddNewScope = () => {
-    this.setState({
-      addingNewScope: !this.state.addingNewScope,
-    });
+  const editingCompleted = () => {
+    setAddingNewScope(false);
+    setEditing(false);
   };
 
-  setEdit = () => {
-    this.setState({
-      editing: !this.state.editing,
-    });
-  };
-
-  editingCompleted = () => {
-    this.setState({
-      addingNewScope: false,
-      editing: false,
-    });
-  };
-
-  setShareScope = () => {
-    this.setState({
-      shareScope: !this.state.shareScope,
-    });
-  };
-
-  moveNext = () => {
-    if (this.state.currentIndex < this.state.projectScopeData.length - 1) {
-      this.setState({
-        currentIndex: this.state.currentIndex + 1,
-      });
+  const moveNext = () => {
+    if (currentIndex < projectScopeData.length - 1) {
+      setCurrentIndex(() => currentIndex + 1);
     }
   };
 
-  movePrev = () => {
-    if (this.state.currentIndex > 0) {
-      this.setState({
-        currentIndex: this.state.currentIndex - 1,
-      });
+  const movePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(() => currentIndex - 1);
     }
   };
 
-  render() {
-    return (
-      <div className={styles.projectScope}>
-        <div className={styles.projectScopeInner}>
-          <div className={styles.scopeHandlers}>
-            <div className={styles.scopeHandlersInner}>
-              {this.state.addingNewScope ? (
-                <div className={styles.listOfHandlers}>
-                  <button onClick={this.editingCompleted}>Done</button>
-                </div>
-              ) : this.state.editing ? (
-                <div className={styles.listOfHandlers}>
-                  <button onClick={this.setAddNewScope}>Add to Scope</button>
-                  <button
-                    onClick={this.editingCompleted}
-                    style={{ color: "var(--secondary)" }}
-                  >
-                    Done
-                  </button>
-                </div>
-              ) : (
-                <div className={styles.listOfHandlers}>
-                  <button onClick={this.setEdit}>Edit</button>
-                  <button onClick={this.setShareScope}>Share</button>
-                  <button className={styles.submitBtn}>Submit</button>
-                </div>
-              )}
-            </div>
-          </div>
-          <div className={styles.scopeContent}>
-            {this.state.addingNewScope ? (
-              <AddToScope
-                projectScopeData={this.state.projectScopeData}
-              ></AddToScope>
+  return (
+    <div className={styles.projectScope}>
+      <div className={styles.projectScopeInner}>
+        <div className={styles.scopeHandlers}>
+          <div className={styles.scopeHandlersInner}>
+            {addingNewScope ? (
+              <div className={styles.listOfHandlers}>
+                <button onClick={() => editingCompleted()}>Done</button>
+              </div>
+            ) : editing ? (
+              <div className={styles.listOfHandlers}>
+                <button onClick={() => setAddingNewScope(!addingNewScope)}>
+                  Add to Scope
+                </button>
+                <button
+                  onClick={() => editingCompleted()}
+                  style={{ color: "var(--secondary)" }}
+                >
+                  Done
+                </button>
+              </div>
             ) : (
-              <div className={styles.scopeContentHeadingList}>
-                {this.state.projectScopeData.map((scopeList, index) =>
-                  this.state.currentIndex == index ? (
-                    <ProjectListBlock
-                      key={index}
-                      counter={index}
-                      noOfscopeTypes={this.state.projectScopeData.length}
-                      currentIndex={this.state.currentIndex}
-                      scopeList={scopeList}
-                      moveNext={this.moveNext}
-                      movePrev={this.movePrev}
-                      editing={this.state.editing}
-                    ></ProjectListBlock>
-                  ) : null
-                )}
+              <div className={styles.listOfHandlers}>
+                <button onClick={() => setEditing(!editing)}>Edit</button>
+                <button onClick={() => setShareScope(!shareScope)}>
+                  Share
+                </button>
+                <button className={styles.submitBtn}>Submit</button>
               </div>
             )}
-
-            {this.state.shareScope ? (
-              <ShareScopeForReview
-                setShareScope={this.setShareScope}
-              ></ShareScopeForReview>
-            ) : null}
           </div>
         </div>
+        <div className={styles.scopeContent}>
+          {addingNewScope ? (
+            <AddToScope projectScopeData={projectScopeData}></AddToScope>
+          ) : (
+            <div className={styles.scopeContentHeadingList}>
+              {projectScopeData.map((scopeList, index) =>
+                currentIndex == index ? (
+                  <ProjectListBlock
+                    key={index}
+                    counter={index}
+                    noOfscopeTypes={projectScopeData.length}
+                    currentIndex={currentIndex}
+                    scopeList={scopeList}
+                    moveNext={moveNext}
+                    movePrev={movePrev}
+                    editing={editing}
+                  ></ProjectListBlock>
+                ) : null
+              )}
+            </div>
+          )}
+
+          {shareScope ? (
+            <ShareScopeForReview
+              setShareScope={()=>setShareScope(!shareScope)}
+            ></ShareScopeForReview>
+          ) : null}
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const ProjectListBlock = (props) => {
